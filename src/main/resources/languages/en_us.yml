@@ -11,4 +11,5 @@ voice_status:
   connected: "<green>🔈</green>"
   disabled: "<gray>🔇</gray>"
   speaking: "<green>🔊</green>"
+  #muted in litebans
   muted: "<red>🔇</red>"
