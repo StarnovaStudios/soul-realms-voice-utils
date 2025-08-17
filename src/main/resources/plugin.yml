@@ -1,0 +1,19 @@
+name: SRVoiceUtils
+version: '${version}'
+main: dev.keaneaudric.soulRealmsVoiceUtils.SoulRealmsVoiceUtils
+api-version: '1.21'
+author: keaneaudric
+description: Voice chat utilities including status placeholders and mute integration
+softdepend: [PlaceholderAPI, voicechat, LiteBans]
+
+commands:
+  soulrealmsvoiceutils:
+    description: Main command for SoulRealms Voice Utils
+    aliases: [srvu, voiceutils]
+    usage: /<command> reload
+    permission: soulrealmsvoiceutils.reload
+
+permissions:
+  soulrealmsvoiceutils.reload:
+    description: Allows reloading the plugin configuration
+    default: op

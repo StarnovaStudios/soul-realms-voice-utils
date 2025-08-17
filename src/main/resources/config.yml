@@ -1,0 +1,9 @@
+language: "en_us"
+
+mute:
+  actionbar:
+    enabled: true
+  message:
+    enabled: false
+
+debug: false
