@@ -1,13 +1,22 @@
+# Language & Messages are configurable here.
 language: "en_us"
 
+# LiteBans Integration
+# Configure where information on whether a player is muted and cannot speak
+# should be shared. Defaults to actionbar.
 mute:
   actionbar:
     enabled: true
   message:
     enabled: false
 
+# Broadcast Settings
+# If you have the configured permission and are in the configured group
+# your voice will be broadcasted to all online players.
 broadcast:
   enabled: true
   broadcast-permission: "voicechat.broadcast"
+  group-name: "Broadcast"
 
+# Additional
 debug: false

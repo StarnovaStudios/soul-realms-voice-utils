@@ -1,15 +1,18 @@
 #https://docs.advntr.dev/minimessage/format
 prefix: "<gray>[<gradient:green:aqua>VoiceUtils</gradient>]</gray> "
 
+# LiteBans Integration Messages
 mute:
   actionbar: "<red>🔇 You are muted for <yellow><time></yellow></red>"
   chat: "<prefix><red>You cannot use voice chat while muted. Time remaining: <yellow><time></yellow></red>"
   permanent: "Permanent"
 
+# %voicechat_status% Placeholder Messages
 voice_status:
   not_installed: "<dark_red>🔇</dark_red>"
   connected: "<green>🔈</green>"
   disabled: "<gray>🔇</gray>"
   speaking: "<green>🔊</green>"
-  #muted in litebans
+
+  # If the player is muted in LiteBans:
   muted: "<red>🔇</red>"

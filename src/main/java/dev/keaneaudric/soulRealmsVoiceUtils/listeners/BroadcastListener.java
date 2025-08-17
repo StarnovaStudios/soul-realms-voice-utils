@@ -15,6 +15,7 @@ public class BroadcastListener implements VoicechatPlugin {
     private final SoulRealmsVoiceUtils plugin;
     private boolean broadcastEnabled;
     private String broadcastPermission;
+    private String broadcastGroupName;
 
     public BroadcastListener(SoulRealmsVoiceUtils plugin, VoiceChatManager manager) {
         this.plugin = plugin;
@@ -26,6 +27,7 @@ public class BroadcastListener implements VoicechatPlugin {
         FileConfiguration config = plugin.getConfig();
         this.broadcastEnabled = config.getBoolean("broadcast.enabled", true);
         this.broadcastPermission = config.getString("broadcast.broadcast-permission", "voicechat.broadcast");
+        this.broadcastGroupName = config.getString("broadcast.group-name", "Broadcast");
     }
 
     @Override
@@ -69,7 +71,7 @@ public class BroadcastListener implements VoicechatPlugin {
             return;
         }
 
-        if (!group.getName().strip().equalsIgnoreCase("broadcast")) {
+        if (!group.getName().strip().equalsIgnoreCase(broadcastGroupName)) {
             return;
         }
 
