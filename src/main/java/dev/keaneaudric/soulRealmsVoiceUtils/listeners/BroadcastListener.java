@@ -1,6 +1,7 @@
 package dev.keaneaudric.soulRealmsVoiceUtils.listeners;
 
 import de.maxhenkel.voicechat.api.*;
+import de.maxhenkel.voicechat.api.packets.StaticSoundPacket;
 import dev.keaneaudric.soulRealmsVoiceUtils.SoulRealmsVoiceUtils;
 import dev.keaneaudric.soulRealmsVoiceUtils.managers.VoiceChatManager;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
@@ -75,6 +76,7 @@ public class BroadcastListener implements VoicechatPlugin {
         event.cancel(); // So that people in the group don't hear the broadcaster twice.
 
         VoicechatServerApi api = event.getVoicechat();
+        StaticSoundPacket staticPacket = event.getPacket().toStaticSoundPacket();
 
         // Iterating over every player on the server
         for (Player onlinePlayer : plugin.getServer().getOnlinePlayers()) {
@@ -91,7 +93,7 @@ public class BroadcastListener implements VoicechatPlugin {
             }
 
             // Send a static audio packet of the microphone data to the connection of each player
-            api.sendStaticSoundPacketTo(connection, event.getPacket().toStaticSoundPacket());
+            api.sendStaticSoundPacketTo(connection, staticPacket);
         }
     }
 }
