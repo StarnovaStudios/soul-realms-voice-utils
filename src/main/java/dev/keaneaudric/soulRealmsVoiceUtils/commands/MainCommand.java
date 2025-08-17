@@ -55,6 +55,10 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 plugin.getVoiceChatMuteListener().reloadConfiguration();
             }
             
+            if (plugin.getBroadcastListener() != null) {
+                plugin.getBroadcastListener().reloadConfiguration();
+            }
+            
             long timeTaken = System.currentTimeMillis() - startTime;
             
             LanguageManager langManager = plugin.getLanguageManager();
