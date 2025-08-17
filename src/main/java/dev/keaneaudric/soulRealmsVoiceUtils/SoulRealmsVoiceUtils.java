@@ -121,4 +121,8 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
     public VoiceChatMuteListener getVoiceChatMuteListener() {
         return voiceChatMuteListener;
     }
+    
+    public BroadcastListener getBroadcastListener() {
+        return broadcastListener;
+    }
 }

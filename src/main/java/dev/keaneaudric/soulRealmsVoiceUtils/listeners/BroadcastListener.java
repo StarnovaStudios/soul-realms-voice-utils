@@ -95,5 +95,14 @@ public class BroadcastListener implements VoicechatPlugin {
             // Send a static audio packet of the microphone data to the connection of each player
             api.sendStaticSoundPacketTo(connection, staticPacket);
         }
+        
+        if (plugin.getConfig().getBoolean("debug", false)) {
+            plugin.getSLF4JLogger().info("[DEBUG] Broadcasted voice packet from {} to {} players", 
+                player.getName(), plugin.getServer().getOnlinePlayers().size() - 1);
+        }
+    }
+    
+    public void reloadConfiguration() {
+        loadConfiguration();
     }
 }
