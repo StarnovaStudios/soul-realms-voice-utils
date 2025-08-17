@@ -24,7 +24,7 @@ public class BroadcastListener implements VoicechatPlugin {
     private void loadConfiguration() {
         FileConfiguration config = plugin.getConfig();
         this.broadcastEnabled = config.getBoolean("broadcast.enabled", true);
-        this.broadcastPermission = config.getString("broadcast.permission", "voicechat.broadcast");
+        this.broadcastPermission = config.getString("broadcast.broadcast-permission", "voicechat.broadcast");
     }
 
     @Override
