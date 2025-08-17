@@ -9,12 +9,15 @@ A collection of utilities built for PaperMC servers for the [SimpleVoiceChat](ht
 - MIT Licensed - do whatever you want with it!
 
 ## Placeholders
-`%voicechat_status%`
+- `%voicechat_status%`
 
 ## Commands
-`/srvu reload`
+- `/srvu reload`
 
 ## Permissions
-`soulrealmsvoiceutils.reload` - Reloads plugin
-`voicechat.broadcast` - Permission to use Broadcast Functions - Configurable
+- `soulrealmsvoiceutils.reload` - Reloads plugin
+- `voicechat.broadcast` - Permission to use Broadcast Functions - Configurable
+
+## Support
+Limited support is provided. Open a GitHub Issue if you have an issue. If you find a critical exploit, email `team@starnova.dev`
 
