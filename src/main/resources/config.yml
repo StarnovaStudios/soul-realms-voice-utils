@@ -6,4 +6,8 @@ mute:
   message:
     enabled: false
 
+broadcast:
+  enabled: true
+  broadcast-permission: "voicechat.broadcast"
+
 debug: false
