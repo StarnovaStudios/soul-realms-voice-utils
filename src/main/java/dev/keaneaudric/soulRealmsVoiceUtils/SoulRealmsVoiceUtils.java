@@ -2,6 +2,7 @@ package dev.keaneaudric.soulRealmsVoiceUtils;
 
 import dev.keaneaudric.soulRealmsVoiceUtils.commands.MainCommand;
 import dev.keaneaudric.soulRealmsVoiceUtils.hooks.PlaceholderAPIHook;
+import dev.keaneaudric.soulRealmsVoiceUtils.listeners.BroadcastListener;
 import dev.keaneaudric.soulRealmsVoiceUtils.listeners.VoiceChatListener;
 import dev.keaneaudric.soulRealmsVoiceUtils.listeners.VoiceChatMuteListener;
 import dev.keaneaudric.soulRealmsVoiceUtils.managers.VoiceChatManager;
@@ -20,6 +21,7 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
     private LanguageManager languageManager;
     private VoiceChatListener voiceChatListener;
     private VoiceChatMuteListener voiceChatMuteListener;
+    private BroadcastListener broadcastListener;
     private PlaceholderAPIHook placeholderHook;
 
     @Override
@@ -55,7 +57,10 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
             
             voiceChatMuteListener = new VoiceChatMuteListener(this, muteManager, languageManager);
             service.registerPlugin(voiceChatMuteListener);
-            
+
+            broadcastListener = new BroadcastListener(this, voiceChatManager);
+            service.registerPlugin(broadcastListener);
+
             getSLF4JLogger().info("SimpleVoiceChat integration initialized.");
         } else {
             Bukkit.getScheduler().runTaskLater(this, this::initializeVoiceChat, 20L);
