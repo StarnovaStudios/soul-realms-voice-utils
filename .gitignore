@@ -15,10 +15,10 @@ gradle-app.setting
 *.iml
 *.ipr
 out/
-.vscode/
 *.swp
 *.swo
 *~
+.vscode/
 
 # Eclipse
 .apt_generated
