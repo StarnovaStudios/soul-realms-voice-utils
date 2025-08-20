@@ -58,7 +58,7 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
             voiceChatMuteListener = new VoiceChatMuteListener(this, muteManager, languageManager);
             service.registerPlugin(voiceChatMuteListener);
 
-            broadcastListener = new BroadcastListener(this, voiceChatManager);
+            broadcastListener = new BroadcastListener(this, voiceChatManager, languageManager);
             service.registerPlugin(broadcastListener);
 
             getSLF4JLogger().info("SimpleVoiceChat integration initialized.");

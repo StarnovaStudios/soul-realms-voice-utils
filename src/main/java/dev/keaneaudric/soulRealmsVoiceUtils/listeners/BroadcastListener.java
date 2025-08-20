@@ -3,9 +3,11 @@ package dev.keaneaudric.soulRealmsVoiceUtils.listeners;
 import de.maxhenkel.voicechat.api.*;
 import de.maxhenkel.voicechat.api.packets.StaticSoundPacket;
 import dev.keaneaudric.soulRealmsVoiceUtils.SoulRealmsVoiceUtils;
+import dev.keaneaudric.soulRealmsVoiceUtils.managers.LanguageManager;
 import dev.keaneaudric.soulRealmsVoiceUtils.managers.VoiceChatManager;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.MicrophonePacketEvent;
+import net.kyori.adventure.text.Component;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -13,13 +15,18 @@ public class BroadcastListener implements VoicechatPlugin {
 
     private final VoiceChatManager manager;
     private final SoulRealmsVoiceUtils plugin;
+    private final LanguageManager languageManager;
+
     private boolean broadcastEnabled;
     private String broadcastPermission;
     private String broadcastGroupName;
+    private boolean actionBarEnabled;
+    private boolean chatMessageEnabled;
 
-    public BroadcastListener(SoulRealmsVoiceUtils plugin, VoiceChatManager manager) {
+    public BroadcastListener(SoulRealmsVoiceUtils plugin, VoiceChatManager manager, LanguageManager languageManager) {
         this.plugin = plugin;
         this.manager = manager;
+        this.languageManager = languageManager;
         loadConfiguration();
     }
 
@@ -28,6 +35,9 @@ public class BroadcastListener implements VoicechatPlugin {
         this.broadcastEnabled = config.getBoolean("broadcast.enabled", true);
         this.broadcastPermission = config.getString("broadcast.broadcast-permission", "voicechat.broadcast");
         this.broadcastGroupName = config.getString("broadcast.group-name", "Broadcast");
+
+        this.actionBarEnabled = config.getBoolean("broadcast.actionbar.enabled", true);
+        this.chatMessageEnabled = config.getBoolean("broadcast.message.enabled", false);
     }
 
     @Override
@@ -76,6 +86,18 @@ public class BroadcastListener implements VoicechatPlugin {
         }
 
         event.cancel(); // So that people in the group don't hear the broadcaster twice.
+
+        // Notify the broadcaster that their voice is being broadcasted
+        if (actionBarEnabled) {
+            Component actionBar = languageManager.getMessage("broadcast.actionbar", "", "");
+            player.sendActionBar(actionBar);
+        }
+
+        if (chatMessageEnabled) {
+            Component chatMessage = languageManager.getMessage("broadcast.chat", "", "");
+            player.sendMessage(chatMessage);
+        }
+
 
         VoicechatServerApi api = event.getVoicechat();
         StaticSoundPacket staticPacket = event.getPacket().toStaticSoundPacket();

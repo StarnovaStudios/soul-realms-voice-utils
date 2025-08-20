@@ -18,5 +18,11 @@ broadcast:
   broadcast-permission: "voicechat.broadcast"
   group-name: "Broadcast"
 
+  # Where the player should be informed that they are broadcasting
+  actionbar:
+    enabled: true
+  message:
+    enabled: false
+
 # Additional
 debug: false
