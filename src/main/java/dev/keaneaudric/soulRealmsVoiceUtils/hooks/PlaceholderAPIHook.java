@@ -58,10 +58,6 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
             return null;
         }
         
-        if (muteManager != null && muteManager.isPlayerMuted(player)) {
-            return languageManager.getRawMessage("voice_status.muted");
-        }
-        
         VoiceChatManager.VoiceStatus status = voiceChatManager.getPlayerVoiceStatus(player);
         String key = "voice_status." + status.name().toLowerCase();
         return languageManager.getRawMessage(key);
