@@ -14,9 +14,6 @@ voice_status:
   disabled: "<gray>🔇</gray>"
   speaking: "<green>🔊</green>"
 
-  # If the player is muted in LiteBans:
-  muted: "<red>🔇</red>"
-
 broadcast:
   actionbar: '<green>🔊 You are currently Broadcasting!'
   chat: '<green>🔊 You are currently Broadcasting!</green>'

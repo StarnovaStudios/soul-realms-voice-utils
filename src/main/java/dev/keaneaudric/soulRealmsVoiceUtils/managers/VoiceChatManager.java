@@ -58,7 +58,6 @@ public class VoiceChatManager {
         NOT_INSTALLED,
         CONNECTED,
         DISABLED,
-        SPEAKING,
-        MUTED
+        SPEAKING
     }
 }
