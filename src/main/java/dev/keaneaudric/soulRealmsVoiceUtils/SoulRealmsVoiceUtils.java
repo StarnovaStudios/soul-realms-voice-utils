@@ -63,7 +63,7 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
 
             getSLF4JLogger().info("SimpleVoiceChat integration initialized.");
         } else {
-            Bukkit.getScheduler().runTaskLater(this, this::initializeVoiceChat, 20L);
+            Bukkit.getGlobalRegionScheduler().runDelayed(this, (task) -> initializeVoiceChat(), 20L);
         }
     }
     
@@ -89,7 +89,7 @@ public final class SoulRealmsVoiceUtils extends JavaPlugin {
             getSLF4JLogger().info("Placeholder: %voicechat_status%");
         } else {
             getSLF4JLogger().error("Failed to register PlaceholderAPI hook!");
-            Bukkit.getScheduler().runTaskLater(this, this::registerPlaceholderAPI, 20L);
+            Bukkit.getGlobalRegionScheduler().runDelayed(this, (task) -> registerPlaceholderAPI(), 20L);
         }
     }
 

@@ -114,7 +114,7 @@ public class LiteBansMuteProvider implements MuteProvider {
         }
         
         lastAsyncRequest.put(uuid, now);
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+        Bukkit.getAsyncScheduler().runNow(plugin, (task) -> {
             try {
                 boolean muted = Database.get().isPlayerMuted(uuid, null);
                 String remainingTime = muted ? queryRemainingTime(uuid) : null;
